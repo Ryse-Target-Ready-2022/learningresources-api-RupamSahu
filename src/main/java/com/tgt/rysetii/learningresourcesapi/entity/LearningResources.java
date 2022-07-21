@@ -14,7 +14,17 @@ public class LearningResources {
     public LearningResources() 
     {
     }
-    public Integer getLearningResourceId() {
+    public LearningResources(Integer id, String Name, Double costPrice, Double sellingPrice, LearningResourcesStatus learningResourceStatus, LocalDate createdDate, LocalDate publishedDate, LocalDate retiredDate) {
+        this.id = id;
+        this.Name = Name;
+        this.costPrice = costPrice;
+        this.sellingPrice = sellingPrice;
+        this.learningResourceStatus = learningResourceStatus;
+        this.createdDate = createdDate;
+        this.publishedDate = publishedDate;
+        this.retiredDate = retiredDate;
+    }
+	public Integer getLearningResourceId() {
         return id;
     }
 
@@ -47,11 +57,11 @@ public class LearningResources {
     }
 
     public LearningResourcesStatus getLearningResourceStatus() {
-        return learningResourcesStatus;
+        return learningResourceStatus;
     }
 
     public void setLearningResourceStatus(LearningResourcesStatus learningResourceStatus) {
-        this.learningResourcesStatus = learningResourceStatus;
+        this.learningResourceStatus = learningResourceStatus;
     }
 
     public LocalDate getCreatedDate() {
@@ -83,5 +93,4 @@ public class LearningResources {
 				+ sellingPrice + ", productStatus=" + learningResourceStatus + ", createdDate=" + createdDate
 				+ ", publishedDate=" + publishedDate + ", retiredDate=" + retiredDate + "]";
 	}
-	
 }
