@@ -1,14 +1,42 @@
 package com.tgt.rysetii.learningresourcesapi.entity;
 import java.time.LocalDate;
 
-public class LearningResources {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "learningresources")
+public class LearningResources implements Serializable{
+	@Id
+    @Column(name = "learning_resource_id")
+	
 	private Integer id;
+	
+	@Column(name = "learning_resource_name")
     private String Name;
+	
+	@Column(name = "cost_price")
     private Double costPrice;
+	
+	@Column(name = "selling_price")
     private Double sellingPrice;
+	
+	@Column(name = "learning_resource_status")
+    @Enumerated(EnumType.STRING)
     private LearningResourcesStatus learningResourceStatus;
+	
+	@Column(name = "created_date")
     private LocalDate createdDate;
-    private LocalDate publishedDate;
+    
+	@Column(name = "published_date")
+	private LocalDate publishedDate;
+	
+	@Column(name = "retired_date")
     private LocalDate retiredDate;
     
     public LearningResources() 
@@ -88,6 +116,7 @@ public class LearningResources {
         this.retiredDate = retiredDate;
     }
     
+    @Override
     public String toString() {
 		return "LearningResource [id=" + id + ", name=" + Name + ", costPrice=" + costPrice + ", sellingPrice="
 				+ sellingPrice + ", productStatus=" + learningResourceStatus + ", createdDate=" + createdDate
