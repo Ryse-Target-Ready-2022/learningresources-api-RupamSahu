@@ -27,7 +27,11 @@ public class LearningResourceService {
         return learningresourcerepository.findAll();
     }
 
-
+	public void deleteLearningResource(int id)
+	{
+		learningresourcerepository.deleteById(id);
+	}
+	
     public List<Double> calculateProfitMargin(){
         List<LearningResources> resources=getLearningResources();
         List<Double> profitMargin = resources.stream()
